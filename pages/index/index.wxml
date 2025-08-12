@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="header">
+    <text class="title">AI游戏合集</text>
+    <text class="subtitle">挑战你的智力与反应</text>
+  </view>
+  
+  <view class="game-list">
+    <view class="game-card" bindtap="goToSudoku">
+      <view class="game-icon">🧩</view>
+      <view class="game-info">
+        <text class="game-name">数独游戏</text>
+        <text class="game-desc">逻辑推理，挑战智力</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToTetris">
+      <view class="game-icon">🎮</view>
+      <view class="game-info">
+        <text class="game-name">俄罗斯方块</text>
+        <text class="game-desc">经典消除，考验反应</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+  </view>
+  
+  <view class="footer">
+    <text class="footer-text">选择一个游戏开始挑战吧！</text>
+  </view>
+</view>

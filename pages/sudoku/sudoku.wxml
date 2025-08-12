@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 顶部工具栏 -->
+  <view class="toolbar">
+    <view class="toolbar-left">
+      <text class="difficulty">难度: {{difficulty}}</text>
+      <text class="timer">时间: {{gameTimeText}}</text>
+    </view>
+    <view class="toolbar-right">
+      <button class="tool-btn" bindtap="showHint" disabled="{{!canUseHint}}">
+        💡 提示({{hintsLeft}})
+      </button>
+      <button class="tool-btn" bindtap="toggleGuide">
+        {{showGuide ? '关闭引导' : '新手引导'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 新手引导面板 -->
+  <view class="guide-panel" wx:if="{{showGuide}}">
+    <view class="guide-content">
+      <text class="guide-title">🎯 数独游戏规则</text>
+      <text class="guide-text">• 在9×9的网格中填入数字1-9</text>
+      <text class="guide-text">• 每行、每列、每个3×3宫格内数字不能重复</text>
+      <text class="guide-text">• 点击空格选择数字，长按可做标记</text>
+      <text class="guide-text">• 使用提示功能获得帮助</text>
+    </view>
+  </view>
+
+  <!-- 数独网格 -->
+  <view class="sudoku-grid">
+    <view class="grid-row" wx:for="{{sudokuGrid}}" wx:key="rowIndex" wx:for-index="rowIndex">
+      <view 
+        class="grid-cell {{cellValue.cellClass}}" 
+        wx:for="{{item}}" 
+        wx:key="colIndex" 
+        wx:for-index="colIndex"
+        wx:for-item="cellValue"
+        bindtap="selectCell"
+        bindlongpress="toggleNote"
+        data-row="{{rowIndex}}"
+        data-col="{{colIndex}}"
+      >
+        <text class="cell-number {{cellValue.isOriginal ? 'original' : 'user-input'}}">
+          {{cellValue.value || ''}}
+        </text>
+        <view class="cell-notes" wx:if="{{cellValue.notes && cellValue.notes.length > 0}}">
+          <text class="note" wx:for="{{cellValue.notes}}" wx:key="*this">{{item}}</text>
+        </view>
+        <view class="cell-hint" wx:if="{{cellValue.isHint}}">✨</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数字选择面板 -->
+  <view class="number-panel" wx:if="{{selectedCell.row !== -1}}">
+    <text class="panel-title">选择数字 ({{selectedCell.row + 1}}, {{selectedCell.col + 1}})</text>
+    <view class="number-grid">
+      <view 
+        class="number-btn {{item === selectedNumber ? 'selected' : ''}}" 
+        wx:for="{{[1,2,3,4,5,6,7,8,9]}}" 
+        wx:key="*this"
+        bindtap="inputNumber"
+        data-number="{{item}}"
+      >
+        {{item}}
+      </view>
+      <view class="number-btn clear-btn" bindtap="clearCell">清除</view>
+    </view>
+  </view>
+
+  <!-- 游戏控制按钮 -->
+  <view class="control-panel">
+    <button class="control-btn" bindtap="newGame">新游戏</button>
+    <button class="control-btn" bindtap="pauseGame">{{isPaused ? '继续' : '暂停'}}</button>
+    <button class="control-btn" bindtap="checkSolution">检查答案</button>
+  </view>
+
+  <!-- 游戏完成弹窗 -->
+  <view class="modal" wx:if="{{showWinModal}}">
+    <view class="modal-content">
+      <text class="modal-title">🎉 恭喜完成！</text>
+      <text class="modal-text">用时: {{gameTimeText}}</text>
+      <text class="modal-text">难度: {{difficulty}}</text>
+      <button class="modal-btn" bindtap="newGame">再来一局</button>
+      <button class="modal-btn secondary" bindtap="goHome">返回主页</button>
+    </view>
+  </view>
+</view>
