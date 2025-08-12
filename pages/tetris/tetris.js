@@ -67,7 +67,10 @@ Page({
 
   // 初始化游戏
   initGame() {
-    const grid = Array(20).fill().map(() => Array(10).fill(0));
+    const grid = Array(20).fill().map(() => Array(10).fill().map(() => ({
+      value: 0,
+      cellClass: ''
+    })));
     this.setData({
       gameGrid: grid,
       currentPiece: null,
@@ -80,6 +83,23 @@ Page({
       showGameOverModal: false
     });
     this.updateNextPieceGrid();
+    this.updateGridDisplay();
+  },
+
+  // 更新网格显示
+  updateGridDisplay() {
+    const { gameGrid, currentPiece, currentPosition, currentRotation } = this.data;
+    
+    const newGrid = gameGrid.map((row, rowIndex) => 
+      row.map((cell, colIndex) => ({
+        value: cell.value || 0,
+        cellClass: this.getCellClass(rowIndex, colIndex, cell.value || 0)
+      }))
+    );
+    
+    this.setData({
+      gameGrid: newGrid
+    });
   },
 
   // 获取随机方块
@@ -126,6 +146,9 @@ Page({
     if (this.data.gameTimer) {
       clearInterval(this.data.gameTimer);
     }
+    this.setData({
+      showGameOverModal: false
+    });
     this.initGame();
     this.startGame();
   },
@@ -143,6 +166,7 @@ Page({
     });
     
     this.updateNextPieceGrid();
+    this.updateGridDisplay();
     
     // 检查游戏是否结束
     if (this.checkCollision(piece.shape, startX, 0)) {
@@ -188,6 +212,7 @@ Page({
       this.setData({
         currentPosition: { x: newX, y: newY }
       });
+      this.updateGridDisplay();
     } else if (direction === 'down') {
       this.placePiece();
     }
@@ -205,6 +230,7 @@ Page({
       this.setData({
         currentPosition: { x: currentPosition.x, y: newY }
       });
+      this.updateGridDisplay();
     } else {
       this.placePiece();
     }
@@ -222,6 +248,7 @@ Page({
     
     if (!this.checkCollision(newShape, currentPosition.x, currentPosition.y)) {
       this.setData({ currentRotation: newRotation });
+      this.updateGridDisplay();
     }
   },
 
@@ -243,6 +270,7 @@ Page({
       currentPosition: { x: currentPosition.x, y: dropY }
     });
     
+    this.updateGridDisplay();
     this.placePiece();
   },
 
@@ -262,8 +290,11 @@ Page({
           }
           
           // 检查已有方块
-          if (newY >= 0 && grid[newY][newX]) {
-            return true;
+          if (newY >= 0) {
+            const cellValue = grid[newY][newX].value || 0;
+            if (cellValue) {
+              return true;
+            }
           }
         }
       }
@@ -278,7 +309,7 @@ Page({
     if (!currentPiece) return;
     
     const shape = currentPiece.rotations[currentRotation];
-    const newGrid = [...gameGrid];
+    const newGrid = gameGrid.map(row => row.map(cell => ({ ...cell })));
     
     // 将方块添加到网格
     for (let py = 0; py < shape.length; py++) {
@@ -287,7 +318,7 @@ Page({
           const x = currentPosition.x + px;
           const y = currentPosition.y + py;
           if (y >= 0) {
-            newGrid[y][x] = 1;
+            newGrid[y][x].value = 1;
           }
         }
       }
@@ -308,7 +339,7 @@ Page({
     const newGrid = [];
     
     for (let y = grid.length - 1; y >= 0; y--) {
-      if (grid[y].every(cell => cell === 1)) {
+      if (grid[y].every(cell => cell.value === 1)) {
         linesCleared++;
       } else {
         newGrid.unshift(grid[y]);
@@ -317,7 +348,7 @@ Page({
     
     // 添加新的空行
     while (newGrid.length < 20) {
-      newGrid.unshift(Array(10).fill(0));
+      newGrid.unshift(Array(10).fill().map(() => ({ value: 0, cellClass: '' })));
     }
     
     if (linesCleared > 0) {
@@ -332,6 +363,8 @@ Page({
         score: this.data.score + scoreIncrease,
         dropSpeed: Math.max(100, 1000 - (newLevel - 1) * 100)
       });
+      
+      this.updateGridDisplay();
       
       // 更新游戏速度
       if (this.data.gameTimer) {

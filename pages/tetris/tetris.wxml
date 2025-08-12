@@ -35,7 +35,7 @@
     <view class="tetris-grid">
       <view class="grid-row" wx:for="{{gameGrid}}" wx:key="rowIndex" wx:for-index="rowIndex">
         <view 
-          class="grid-cell {{getCellClass(rowIndex, colIndex, item)}}" 
+          class="grid-cell {{item.cellClass}}" 
           wx:for="{{item}}" 
           wx:key="colIndex" 
           wx:for-index="colIndex"
