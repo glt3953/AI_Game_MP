@@ -15,18 +15,20 @@
   
   <view class="game-container">
     <view class="game-board">
-      <view class="board-row" wx:for="{{board}}" wx:key="index" wx:for-index="rowIndex">
+      <view class="board-row" wx:for="{{board}}" wx:key="rowIndex" wx:for-index="rowIndex">
         <view 
-          class="{{getCellClass(item)}}"
+          class="cell {{item.isRevealed ? (item.isMine ? 'cell-mine' : 'cell-revealed') : (item.isFlagged ? 'cell-flagged' : 'cell-hidden')}} {{item.isRevealed && !item.isMine && item.neighborMines > 0 ? 'cell-' + item.neighborMines : ''}}"
           wx:for="{{item}}" 
-          wx:key="index" 
+          wx:key="colIndex" 
           wx:for-index="colIndex"
           data-row="{{rowIndex}}"
           data-col="{{colIndex}}"
           bindtap="onCellTap"
           bindlongpress="onCellLongPress"
         >
-          <text class="cell-content">{{getCellContent(item)}}</text>
+          <text class="cell-content">
+            {{item.isFlagged && !item.isRevealed ? '🚩' : (item.isRevealed ? (item.isMine ? '💣' : (item.neighborMines > 0 ? item.neighborMines : '')) : '')}}
+          </text>
         </view>
       </view>
     </view>

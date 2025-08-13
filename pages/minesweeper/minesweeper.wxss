@@ -56,27 +56,30 @@
 .game-board {
   background: #bdc3c7;
   border-radius: 15rpx;
-  padding: 15rpx;
+  padding: 10rpx;
   display: flex;
   flex-direction: column;
-  gap: 4rpx;
+  gap: 2rpx;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .board-row {
   display: flex;
-  gap: 4rpx;
+  gap: 2rpx;
 }
 
 .cell {
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24rpx;
+  font-size: 20rpx;
   font-weight: bold;
-  border-radius: 4rpx;
+  border-radius: 3rpx;
   transition: all 0.1s ease;
+  box-sizing: border-box;
 }
 
 .cell-hidden {
@@ -136,8 +139,47 @@
 }
 
 .cell-content {
-  font-size: 24rpx;
+  font-size: 18rpx;
   font-weight: bold;
+  line-height: 1;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 400px) {
+  .cell {
+    width: 40rpx;
+    height: 40rpx;
+    font-size: 16rpx;
+  }
+  
+  .cell-content {
+    font-size: 14rpx;
+  }
+  
+  .game-board {
+    padding: 8rpx;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .cell {
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 24rpx;
+  }
+  
+  .cell-content {
+    font-size: 22rpx;
+  }
+  
+  .game-board {
+    padding: 12rpx;
+    gap: 3rpx;
+  }
+  
+  .board-row {
+    gap: 3rpx;
+  }
 }
 
 .game-status {

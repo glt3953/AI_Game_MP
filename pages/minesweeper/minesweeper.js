@@ -105,14 +105,16 @@ Page({
     }
     
     const {row, col} = e.currentTarget.dataset;
-    const cell = this.data.board[row][col];
+    const r = parseInt(row);
+    const c = parseInt(col);
+    const cell = this.data.board[r][c];
     
     if (cell.isFlagged || cell.isRevealed) {
       return;
     }
     
     if (this.data.firstClick) {
-      this.placeMines(row, col);
+      this.placeMines(r, c);
       this.setData({
         firstClick: false,
         gameStatus: 'playing'
@@ -120,7 +122,7 @@ Page({
       this.startTimer();
     }
     
-    this.revealCell(row, col);
+    this.revealCell(r, c);
   },
 
   onCellLongPress(e) {
@@ -129,7 +131,9 @@ Page({
     }
     
     const {row, col} = e.currentTarget.dataset;
-    const cell = this.data.board[row][col];
+    const r = parseInt(row);
+    const c = parseInt(col);
+    const cell = this.data.board[r][c];
     
     if (cell.isRevealed) {
       return;
@@ -139,11 +143,11 @@ Page({
     let flagCount = this.data.flagCount;
     
     if (cell.isFlagged) {
-      board[row][col].isFlagged = false;
+      board[r][c].isFlagged = false;
       flagCount--;
     } else {
       if (flagCount < this.data.mineCount) {
-        board[row][col].isFlagged = true;
+        board[r][c].isFlagged = true;
         flagCount++;
       }
     }
@@ -246,41 +250,5 @@ Page({
 
   restart() {
     this.initGame();
-  },
-
-  getCellClass(cell) {
-    let classes = ['cell'];
-    
-    if (cell.isRevealed) {
-      if (cell.isMine) {
-        classes.push('cell-mine');
-      } else {
-        classes.push('cell-revealed');
-        if (cell.neighborMines > 0) {
-          classes.push(`cell-${cell.neighborMines}`);
-        }
-      }
-    } else if (cell.isFlagged) {
-      classes.push('cell-flagged');
-    } else {
-      classes.push('cell-hidden');
-    }
-    
-    return classes.join(' ');
-  },
-
-  getCellContent(cell) {
-    if (cell.isFlagged && !cell.isRevealed) {
-      return '🚩';
-    }
-    if (cell.isRevealed) {
-      if (cell.isMine) {
-        return '💣';
-      }
-      if (cell.neighborMines > 0) {
-        return cell.neighborMines;
-      }
-    }
-    return '';
   }
 });
