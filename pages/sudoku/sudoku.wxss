@@ -28,16 +28,21 @@
 
 .toolbar-right {
   display: flex;
-  gap: 10rpx;
+  gap: 2vw;
+  flex-wrap: wrap;
 }
 
 .tool-btn {
-  font-size: 22rpx;
-  padding: 10rpx 15rpx;
+  font-size: 3vw;
+  max-font-size: 24rpx;
+  min-font-size: 20rpx;
+  padding: 2vw 3vw;
   background: #007aff;
   color: white;
   border-radius: 8rpx;
   border: none;
+  white-space: nowrap;
+  min-width: 80rpx;
 }
 
 .tool-btn[disabled] {
@@ -191,18 +196,24 @@
 .number-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10rpx;
+  gap: 2vw;
 }
 
 .number-btn {
-  width: 60rpx;
-  height: 60rpx;
+  width: 15vw;
+  height: 15vw;
+  max-width: 80rpx;
+  max-height: 80rpx;
+  min-width: 50rpx;
+  min-height: 50rpx;
   border: 2rpx solid #ddd;
   border-radius: 10rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28rpx;
+  font-size: 5vw;
+  max-font-size: 32rpx;
+  min-font-size: 24rpx;
   font-weight: bold;
   color: #333;
   background: white;
@@ -218,24 +229,32 @@
   background: #f44336;
   color: white;
   border-color: #f44336;
-  font-size: 22rpx;
+  font-size: 4vw;
+  max-font-size: 26rpx;
+  min-font-size: 20rpx;
   grid-column: span 2;
 }
 
 .control-panel {
   display: flex;
-  gap: 15rpx;
+  gap: 3vw;
   justify-content: center;
+  padding: 0 20rpx;
 }
 
 .control-btn {
   flex: 1;
-  padding: 25rpx;
+  padding: 4vw 2vw;
   background: #4caf50;
   color: white;
   border-radius: 15rpx;
-  font-size: 26rpx;
+  font-size: 4vw;
+  max-font-size: 28rpx;
+  min-font-size: 22rpx;
   border: none;
+  white-space: nowrap;
+  min-width: 100rpx;
+  max-width: 150rpx;
 }
 
 .control-btn:nth-child(2) {
@@ -284,14 +303,19 @@
 }
 
 .modal-btn {
-  width: 200rpx;
-  padding: 20rpx;
-  margin: 10rpx;
+  width: 35vw;
+  max-width: 200rpx;
+  min-width: 120rpx;
+  padding: 3vw 2vw;
+  margin: 2vw;
   background: #2196f3;
   color: white;
   border-radius: 10rpx;
-  font-size: 26rpx;
+  font-size: 4vw;
+  max-font-size: 28rpx;
+  min-font-size: 22rpx;
   border: none;
+  white-space: nowrap;
 }
 
 .modal-btn.secondary {
