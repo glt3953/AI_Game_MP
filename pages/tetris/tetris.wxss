@@ -137,11 +137,11 @@
 }
 
 .control-btn {
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   border: none;
-  font-size: 32rpx;
+  font-size: 36rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,9 +168,10 @@
 
 .move-btn {
   background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  width: 100rpx;
-  height: 60rpx;
+  width: 120rpx;
+  height: 80rpx;
   border-radius: 15rpx;
+  font-size: 32rpx;
 }
 
 .game-controls {

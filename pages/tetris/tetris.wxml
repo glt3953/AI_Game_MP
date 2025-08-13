@@ -48,10 +48,10 @@
   <view class="controls">
     <view class="control-row">
       <button class="control-btn rotate-btn" bindtap="rotatePiece">🔄</button>
+      <button class="control-btn drop-btn" bindtap="hardDrop">⬇️</button>
       <button class="control-btn pause-btn" bindtap="togglePause">
         {{isPaused ? '▶️' : '⏸️'}}
       </button>
-      <button class="control-btn drop-btn" bindtap="hardDrop">⬇️</button>
     </view>
     
     <view class="control-row">
