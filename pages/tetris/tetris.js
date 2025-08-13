@@ -402,9 +402,15 @@ Page({
   togglePause() {
     if (!this.data.gameStarted) return;
     
+    console.log('togglePause called, current isPaused:', this.data.isPaused);
     this.setData({
       isPaused: !this.data.isPaused
     });
+  },
+
+  // 阻止事件冒泡
+  stopPropagation() {
+    // 空函数，用于阻止事件冒泡
   },
 
   // 游戏结束

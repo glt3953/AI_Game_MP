@@ -80,8 +80,11 @@
   </view>
 
   <!-- 暂停遮罩 -->
-  <view class="pause-overlay" wx:if="{{isPaused && gameStarted}}">
-    <text class="pause-text">游戏暂停</text>
-    <text class="pause-hint">点击继续按钮恢复游戏</text>
+  <view class="pause-overlay" wx:if="{{isPaused && gameStarted}}" bindtap="togglePause">
+    <view class="pause-content" catchtap="stopPropagation">
+      <text class="pause-text">游戏暂停</text>
+      <text class="pause-hint">点击屏幕或继续按钮恢复游戏</text>
+      <button class="resume-btn" catchtap="togglePause">继续游戏</button>
+    </view>
   </view>
 </view>
