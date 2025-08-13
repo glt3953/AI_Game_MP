@@ -127,21 +127,30 @@
 
 .controls {
   margin-bottom: 20rpx;
+  padding: 0 20rpx;
 }
 
 .control-row {
   display: flex;
-  justify-content: center;
-  gap: 20rpx;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3vw;
   margin-bottom: 15rpx;
+  max-width: 100%;
 }
 
 .control-btn {
-  width: 100rpx;
-  height: 100rpx;
+  width: 18vw;
+  height: 18vw;
+  max-width: 120rpx;
+  max-height: 120rpx;
+  min-width: 80rpx;
+  min-height: 80rpx;
   border-radius: 50%;
   border: none;
-  font-size: 36rpx;
+  font-size: 5vw;
+  max-font-size: 40rpx;
+  min-font-size: 28rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,26 +177,39 @@
 
 .move-btn {
   background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  width: 120rpx;
-  height: 80rpx;
+  width: 22vw;
+  height: 12vw;
+  max-width: 140rpx;
+  max-height: 80rpx;
+  min-width: 100rpx;
+  min-height: 60rpx;
   border-radius: 15rpx;
-  font-size: 32rpx;
+  font-size: 4.5vw;
+  max-font-size: 36rpx;
+  min-font-size: 24rpx;
 }
 
 .game-controls {
   display: flex;
   justify-content: center;
-  gap: 20rpx;
+  gap: 4vw;
+  padding: 0 20rpx;
 }
 
 .game-btn {
-  padding: 25rpx 40rpx;
+  padding: 3vw 8vw;
   border-radius: 15rpx;
   border: none;
-  font-size: 28rpx;
+  font-size: 4vw;
+  max-font-size: 32rpx;
+  min-font-size: 24rpx;
   font-weight: bold;
   color: white;
   box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  min-width: 200rpx;
+  max-width: 300rpx;
+  width: auto;
 }
 
 .start-btn {
