@@ -206,5 +206,23 @@ Page({
         this.setData({direction: 'up'});
       }
     }
+  },
+
+  // 方向控制按钮
+  changeDirection(e) {
+    if (!this.data.gameRunning) return;
+    
+    const direction = e.currentTarget.dataset.direction;
+    const currentDirection = this.data.direction;
+    
+    // 防止反向移动
+    if ((direction === 'up' && currentDirection === 'down') ||
+        (direction === 'down' && currentDirection === 'up') ||
+        (direction === 'left' && currentDirection === 'right') ||
+        (direction === 'right' && currentDirection === 'left')) {
+      return;
+    }
+    
+    this.setData({direction});
   }
 });

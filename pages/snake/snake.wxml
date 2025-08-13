@@ -18,20 +18,63 @@
     </view>
   </view>
   
-  <view class="controls">
-    <button class="control-btn start-btn" bindtap="startGame" disabled="{{gameRunning}}">
-      {{gameRunning ? '游戏中' : '开始游戏'}}
-    </button>
-    <button class="control-btn pause-btn" bindtap="pauseGame" disabled="{{!gameRunning}}">
-      暂停
-    </button>
-    <button class="control-btn reset-btn" bindtap="resetGame">
-      重新开始
-    </button>
+  <view class="game-controls">
+    <view class="control-buttons">
+      <button class="control-btn start-btn" bindtap="startGame" disabled="{{gameRunning}}">
+        {{gameRunning ? '游戏中' : '开始游戏'}}
+      </button>
+      <button class="control-btn pause-btn" bindtap="pauseGame" disabled="{{!gameRunning}}">
+        暂停
+      </button>
+      <button class="control-btn reset-btn" bindtap="resetGame">
+        重新开始
+      </button>
+    </view>
+  </view>
+  
+  <view class="direction-controls">
+    <view class="direction-row">
+      <button 
+        class="direction-btn up-btn" 
+        data-direction="up" 
+        bindtap="changeDirection"
+        disabled="{{!gameRunning}}"
+      >
+        ↑
+      </button>
+    </view>
+    <view class="direction-row middle-row">
+      <button 
+        class="direction-btn left-btn" 
+        data-direction="left" 
+        bindtap="changeDirection"
+        disabled="{{!gameRunning}}"
+      >
+        ←
+      </button>
+      <button 
+        class="direction-btn right-btn" 
+        data-direction="right" 
+        bindtap="changeDirection"
+        disabled="{{!gameRunning}}"
+      >
+        →
+      </button>
+    </view>
+    <view class="direction-row">
+      <button 
+        class="direction-btn down-btn" 
+        data-direction="down" 
+        bindtap="changeDirection"
+        disabled="{{!gameRunning}}"
+      >
+        ↓
+      </button>
+    </view>
   </view>
   
   <view class="instructions">
-    <text class="instruction-text">滑动屏幕控制蛇的方向</text>
+    <text class="instruction-text">使用方向按钮或滑动屏幕控制蛇的方向</text>
     <text class="instruction-text">吃到红色食物得分，避免撞墙和撞到自己</text>
   </view>
 </view>

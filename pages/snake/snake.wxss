@@ -65,19 +65,31 @@
   font-size: 32rpx;
 }
 
-.controls {
+.game-controls {
+  width: 100%;
+  max-width: 600rpx;
+  margin-bottom: 30rpx;
+}
+
+.control-buttons {
   display: flex;
-  gap: 20rpx;
-  margin-bottom: 40rpx;
+  justify-content: space-between;
+  gap: 15rpx;
+  margin-bottom: 30rpx;
 }
 
 .control-btn {
-  padding: 20rpx 40rpx;
-  border-radius: 50rpx;
-  font-size: 28rpx;
+  flex: 1;
+  padding: 15rpx 10rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
   border: none;
   color: white;
   font-weight: bold;
+  min-height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .start-btn {
@@ -98,6 +110,89 @@
 
 .reset-btn {
   background: #2196F3;
+}
+
+.direction-controls {
+  width: 100%;
+  max-width: 300rpx;
+  margin: 0 auto 30rpx;
+}
+
+.direction-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15rpx;
+}
+
+.middle-row {
+  justify-content: space-between;
+}
+
+.direction-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.direction-btn:active {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0.95);
+}
+
+.direction-btn[disabled] {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.up-btn, .down-btn {
+  margin: 0 auto;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 400px) {
+  .control-btn {
+    font-size: 22rpx;
+    padding: 12rpx 8rpx;
+    min-height: 60rpx;
+  }
+  
+  .direction-btn {
+    width: 70rpx;
+    height: 70rpx;
+    font-size: 32rpx;
+  }
+  
+  .direction-controls {
+    max-width: 260rpx;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .control-btn {
+    font-size: 30rpx;
+    padding: 18rpx 15rpx;
+    min-height: 80rpx;
+  }
+  
+  .direction-btn {
+    width: 90rpx;
+    height: 90rpx;
+    font-size: 40rpx;
+  }
+  
+  .direction-controls {
+    max-width: 350rpx;
+  }
 }
 
 .instructions {
