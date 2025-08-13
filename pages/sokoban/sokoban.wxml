@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="header">
+    <text class="title">推箱子</text>
+    <view class="game-info">
+      <text class="level">关卡: {{level}}</text>
+      <text class="moves">步数: {{moves}}</text>
+    </view>
+  </view>
+
+  <view class="game-board">
+    <view class="grid-row" wx:for="{{grid}}" wx:for-item="row" wx:for-index="rowIndex" wx:key="rowIndex">
+      <view 
+        class="{{getCellClass(colIndex, rowIndex)}}"
+        wx:for="{{row}}" 
+        wx:for-item="cell"
+        wx:for-index="colIndex"
+        wx:key="colIndex"
+      >
+        <text class="cell-content">{{getCellContent(colIndex, rowIndex)}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="controls">
+    <view class="direction-pad">
+      <view class="direction-row">
+        <view class="direction-btn" data-direction="up" bindtap="onDirectionClick">
+          <text class="direction-icon">⬆️</text>
+        </view>
+      </view>
+      <view class="direction-row">
+        <view class="direction-btn" data-direction="left" bindtap="onDirectionClick">
+          <text class="direction-icon">⬅️</text>
+        </view>
+        <view class="direction-btn center">
+          <text class="direction-icon">🎮</text>
+        </view>
+        <view class="direction-btn" data-direction="right" bindtap="onDirectionClick">
+          <text class="direction-icon">➡️</text>
+        </view>
+      </view>
+      <view class="direction-row">
+        <view class="direction-btn" data-direction="down" bindtap="onDirectionClick">
+          <text class="direction-icon">⬇️</text>
+        </view>
+      </view>
+    </view>
+    
+    <button class="btn restart" bindtap="restart">重新开始</button>
+  </view>
+
+  <view class="win-message" wx:if="{{isWin}}">
+    <text class="win-text">🎉 恭喜过关！</text>
+    <text class="win-steps">用了 {{moves}} 步</text>
+  </view>
+
+  <view class="instructions">
+    <text class="instruction-title">游戏说明：</text>
+    <text class="instruction-text">• 🧑 玩家  📦 箱子  🎯 目标位置</text>
+    <text class="instruction-text">• 推动所有箱子到目标位置即可过关</text>
+  </view>
+</view>

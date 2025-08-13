@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <text class="title">打砖块</text>
+    <view class="game-info">
+      <text class="score">分数: {{score}}</text>
+      <text class="lives">生命: {{lives}}</text>
+    </view>
+  </view>
+
+  <view class="game-area">
+    <canvas 
+      id="gameCanvas" 
+      type="2d" 
+      class="game-canvas"
+      bindtouchstart="onTouchStart"
+      bindtouchmove="onTouchMove"
+    ></canvas>
+  </view>
+
+  <view class="controls">
+    <button class="btn primary" bindtap="startGame" wx:if="{{!gameStarted}}">
+      开始游戏
+    </button>
+    <button class="btn secondary" bindtap="restart">
+      重新开始
+    </button>
+  </view>
+
+  <view class="game-over" wx:if="{{gameOver}}">
+    <view class="game-over-content">
+      <text class="game-over-title">{{isWin ? '🎉 恭喜获胜！' : '💥 游戏结束！'}}</text>
+      <text class="final-score">最终得分: {{score}}</text>
+    </view>
+  </view>
+
+  <view class="instructions">
+    <text class="instruction-title">游戏说明：</text>
+    <text class="instruction-text">• 左右滑动屏幕控制球拍</text>
+    <text class="instruction-text">• 用球拍接住球，击破所有砖块</text>
+    <text class="instruction-text">• 球掉落会失去一条生命</text>
+  </view>
+</view>

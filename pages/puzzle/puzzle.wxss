@@ -1,0 +1,119 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  gap: 40rpx;
+}
+
+.moves {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+.puzzle-board {
+  width: 600rpx;
+  height: 600rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10rpx;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.tile {
+  background: white;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.tile:active {
+  transform: scale(0.95);
+}
+
+.tile.empty {
+  background: transparent;
+  box-shadow: none;
+}
+
+.tile-number {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.controls {
+  display: flex;
+  gap: 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.btn {
+  padding: 20rpx 40rpx;
+  border-radius: 25rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  border: none;
+}
+
+.btn.primary {
+  background: #00b894;
+  color: white;
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.win-message {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
+}
+
+.win-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #00b894;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.win-steps {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+}

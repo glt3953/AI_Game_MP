@@ -58,6 +58,42 @@
       </view>
       <view class="game-arrow">></view>
     </view>
+    
+    <view class="game-card" bindtap="goToPuzzle">
+      <view class="game-icon">🧩</view>
+      <view class="game-info">
+        <text class="game-name">拼图游戏</text>
+        <text class="game-desc">数字拼图，考验智力</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToLianliankan">
+      <view class="game-icon">🔗</view>
+      <view class="game-info">
+        <text class="game-name">连连看</text>
+        <text class="game-desc">配对消除，眼疾手快</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToSokoban">
+      <view class="game-icon">📦</view>
+      <view class="game-info">
+        <text class="game-name">推箱子</text>
+        <text class="game-desc">经典益智，步步为营</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToBreakout">
+      <view class="game-icon">🏓</view>
+      <view class="game-info">
+        <text class="game-name">打砖块</text>
+        <text class="game-desc">经典街机，反应挑战</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
   </view>
   
   <view class="footer">

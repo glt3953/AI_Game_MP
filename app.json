@@ -6,7 +6,11 @@
     "pages/snake/snake",
     "pages/game2048/game2048",
     "pages/minesweeper/minesweeper",
-    "pages/gobang/gobang"
+    "pages/gobang/gobang",
+    "pages/puzzle/puzzle",
+    "pages/lianliankan/lianliankan",
+    "pages/sokoban/sokoban",
+    "pages/breakout/breakout"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -45,5 +45,33 @@ Page({
     wx.navigateTo({
       url: '/pages/gobang/gobang'
     });
+  },
+
+  // 跳转到拼图游戏
+  goToPuzzle() {
+    wx.navigateTo({
+      url: '/pages/puzzle/puzzle'
+    });
+  },
+
+  // 跳转到连连看游戏
+  goToLianliankan() {
+    wx.navigateTo({
+      url: '/pages/lianliankan/lianliankan'
+    });
+  },
+
+  // 跳转到推箱子游戏
+  goToSokoban() {
+    wx.navigateTo({
+      url: '/pages/sokoban/sokoban'
+    });
+  },
+
+  // 跳转到打砖块游戏
+  goToBreakout() {
+    wx.navigateTo({
+      url: '/pages/breakout/breakout'
+    });
   }
 });
