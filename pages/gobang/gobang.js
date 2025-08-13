@@ -137,35 +137,5 @@ Page({
 
   restart() {
     this.initGame();
-  },
-
-  getCellClass(row, col) {
-    let classes = ['cell'];
-    
-    const cell = this.data.board[row][col];
-    if (cell === 1) {
-      classes.push('cell-black');
-    } else if (cell === 2) {
-      classes.push('cell-white');
-    }
-    
-    // 高亮最后一步
-    if (this.data.lastMove && 
-        this.data.lastMove.row === row && 
-        this.data.lastMove.col === col) {
-      classes.push('cell-last-move');
-    }
-    
-    return classes.join(' ');
-  },
-
-  getCellContent(row, col) {
-    const cell = this.data.board[row][col];
-    if (cell === 1) {
-      return '●';
-    } else if (cell === 2) {
-      return '○';
-    }
-    return '';
   }
 });

@@ -16,17 +16,17 @@
   
   <view class="game-container">
     <view class="game-board">
-      <view class="board-row" wx:for="{{board}}" wx:key="index" wx:for-index="rowIndex">
+      <view class="board-row" wx:for="{{board}}" wx:key="rowIndex" wx:for-index="rowIndex">
         <view 
-          class="{{getCellClass(rowIndex, colIndex)}}"
+          class="cell {{item === 1 ? 'cell-black' : (item === 2 ? 'cell-white' : '')}} {{lastMove && lastMove.row === rowIndex && lastMove.col === colIndex ? 'cell-last-move' : ''}}"
           wx:for="{{item}}" 
-          wx:key="index" 
+          wx:key="colIndex" 
           wx:for-index="colIndex"
           data-row="{{rowIndex}}"
           data-col="{{colIndex}}"
           bindtap="onCellTap"
         >
-          <text class="cell-content">{{getCellContent(rowIndex, colIndex)}}</text>
+          <text class="cell-content">{{item === 1 ? '●' : (item === 2 ? '○' : '')}}</text>
         </view>
       </view>
     </view>
