@@ -48,22 +48,25 @@
 
 .game-board {
   background: #daa520;
-  padding: 10rpx;
+  padding: 20rpx;
   display: flex;
   flex-direction: column;
-  gap: 1rpx;
-  width: fit-content;
+  gap: 2rpx;
+  width: calc(100vw - 80rpx);
+  max-width: 750rpx;
   margin: 0 auto;
+  aspect-ratio: 1;
 }
 
 .board-row {
   display: flex;
-  gap: 1rpx;
+  gap: 2rpx;
+  flex: 1;
 }
 
 .cell {
-  width: 30rpx;
-  height: 30rpx;
+  flex: 1;
+  aspect-ratio: 1;
   background: #daa520;
   border: 1rpx solid #8b7355;
   display: flex;
@@ -72,6 +75,7 @@
   position: relative;
   transition: all 0.1s ease;
   box-sizing: border-box;
+  min-height: 0;
 }
 
 .cell:active {
@@ -79,7 +83,7 @@
 }
 
 .cell-content {
-  font-size: 24rpx;
+  font-size: 36rpx;
   font-weight: bold;
   line-height: 1;
   position: relative;
@@ -88,52 +92,42 @@
 
 .cell-black .cell-content {
   color: #2d3436;
-  text-shadow: 1rpx 1rpx 2rpx rgba(255, 255, 255, 0.3);
+  text-shadow: 2rpx 2rpx 4rpx rgba(255, 255, 255, 0.3);
 }
 
 .cell-white .cell-content {
   color: #ddd;
-  text-shadow: 1rpx 1rpx 2rpx rgba(0, 0, 0, 0.3);
+  text-shadow: 2rpx 2rpx 4rpx rgba(0, 0, 0, 0.3);
 }
 
 .cell-last-move {
   background: #e17055 !important;
-  box-shadow: 0 0 8rpx rgba(225, 112, 85, 0.8);
+  box-shadow: 0 0 12rpx rgba(225, 112, 85, 0.8);
 }
 
 /* 响应式设计 */
 @media screen and (max-width: 400px) {
-  .cell {
-    width: 25rpx;
-    height: 25rpx;
-  }
-  
-  .cell-content {
-    font-size: 20rpx;
-  }
-  
-  .game-board {
-    padding: 8rpx;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .cell {
-    width: 35rpx;
-    height: 35rpx;
-  }
-  
   .cell-content {
     font-size: 28rpx;
   }
   
   .game-board {
-    padding: 12rpx;
-    gap: 2rpx;
+    padding: 15rpx;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .cell-content {
+    font-size: 42rpx;
+  }
+  
+  .game-board {
+    padding: 25rpx;
+    gap: 3rpx;
   }
   
   .board-row {
-    gap: 2rpx;
+    gap: 3rpx;
   }
 }
 
@@ -144,7 +138,7 @@
   top: 50%;
   left: 0;
   right: 0;
-  height: 1rpx;
+  height: 2rpx;
   background: #8b7355;
   z-index: 0;
   transform: translateY(-50%);
@@ -156,7 +150,7 @@
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 1rpx;
+  width: 2rpx;
   background: #8b7355;
   z-index: 0;
   transform: translateX(-50%);
@@ -180,12 +174,36 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6rpx;
-  height: 6rpx;
+  width: 10rpx;
+  height: 10rpx;
   background: #8b7355;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
+}
+
+/* 在小屏幕上调整星位标记大小 */
+@media screen and (max-width: 400px) {
+  .board-row:nth-child(4) .cell:nth-child(4)::before,
+  .board-row:nth-child(4) .cell:nth-child(12)::before,
+  .board-row:nth-child(8) .cell:nth-child(8)::before,
+  .board-row:nth-child(12) .cell:nth-child(4)::before,
+  .board-row:nth-child(12) .cell:nth-child(12)::before {
+    width: 8rpx;
+    height: 8rpx;
+  }
+}
+
+/* 在大屏幕上调整星位标记大小 */
+@media screen and (min-width: 600px) {
+  .board-row:nth-child(4) .cell:nth-child(4)::before,
+  .board-row:nth-child(4) .cell:nth-child(12)::before,
+  .board-row:nth-child(8) .cell:nth-child(8)::before,
+  .board-row:nth-child(12) .cell:nth-child(4)::before,
+  .board-row:nth-child(12) .cell:nth-child(12)::before {
+    width: 12rpx;
+    height: 12rpx;
+  }
 }
 
 .controls {
