@@ -56,54 +56,63 @@
 .game-board {
   background: #bdc3c7;
   border-radius: 15rpx;
-  padding: 10rpx;
+  padding: 20rpx;
   display: flex;
   flex-direction: column;
-  gap: 2rpx;
-  width: fit-content;
+  gap: 3rpx;
+  width: calc(100vw - 80rpx);
+  max-width: 750rpx;
   margin: 0 auto;
+  aspect-ratio: 1;
 }
 
 .board-row {
   display: flex;
-  gap: 2rpx;
+  gap: 3rpx;
+  flex: 1;
 }
 
 .cell {
-  width: 50rpx;
-  height: 50rpx;
+  flex: 1;
+  aspect-ratio: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20rpx;
+  font-size: 28rpx;
   font-weight: bold;
-  border-radius: 3rpx;
+  border-radius: 6rpx;
   transition: all 0.1s ease;
   box-sizing: border-box;
+  min-height: 0;
 }
 
 .cell-hidden {
   background: #95a5a6;
-  border: 2rpx outset #95a5a6;
+  border: 3rpx outset #95a5a6;
+  box-shadow: inset -2rpx -2rpx 4rpx rgba(0, 0, 0, 0.2);
 }
 
 .cell-hidden:active {
   background: #7f8c8d;
+  border: 2rpx inset #7f8c8d;
 }
 
 .cell-revealed {
   background: #ecf0f1;
-  border: 1rpx solid #bdc3c7;
+  border: 2rpx solid #bdc3c7;
+  box-shadow: inset 1rpx 1rpx 2rpx rgba(0, 0, 0, 0.1);
 }
 
 .cell-flagged {
   background: #e74c3c;
-  border: 2rpx outset #e74c3c;
+  border: 3rpx outset #e74c3c;
+  box-shadow: inset -2rpx -2rpx 4rpx rgba(0, 0, 0, 0.2);
 }
 
 .cell-mine {
   background: #e74c3c;
-  border: 1rpx solid #c0392b;
+  border: 2rpx solid #c0392b;
+  box-shadow: inset 1rpx 1rpx 2rpx rgba(0, 0, 0, 0.3);
 }
 
 .cell-1 .cell-content {
@@ -139,7 +148,7 @@
 }
 
 .cell-content {
-  font-size: 18rpx;
+  font-size: 32rpx;
   font-weight: bold;
   line-height: 1;
 }
@@ -147,38 +156,41 @@
 /* 响应式设计 */
 @media screen and (max-width: 400px) {
   .cell {
-    width: 40rpx;
-    height: 40rpx;
-    font-size: 16rpx;
+    font-size: 24rpx;
+    border-radius: 4rpx;
   }
   
   .cell-content {
-    font-size: 14rpx;
+    font-size: 26rpx;
   }
   
   .game-board {
-    padding: 8rpx;
+    padding: 15rpx;
+    gap: 2rpx;
+  }
+  
+  .board-row {
+    gap: 2rpx;
   }
 }
 
 @media screen and (min-width: 600px) {
   .cell {
-    width: 60rpx;
-    height: 60rpx;
-    font-size: 24rpx;
+    font-size: 36rpx;
+    border-radius: 8rpx;
   }
   
   .cell-content {
-    font-size: 22rpx;
+    font-size: 38rpx;
   }
   
   .game-board {
-    padding: 12rpx;
-    gap: 3rpx;
+    padding: 25rpx;
+    gap: 4rpx;
   }
   
   .board-row {
-    gap: 3rpx;
+    gap: 4rpx;
   }
 }
 
