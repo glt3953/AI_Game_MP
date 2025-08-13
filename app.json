@@ -2,7 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/sudoku/sudoku",
-    "pages/tetris/tetris"
+    "pages/tetris/tetris",
+    "pages/snake/snake",
+    "pages/game2048/game2048",
+    "pages/minesweeper/minesweeper",
+    "pages/gobang/gobang"
   ],
   "window": {
     "backgroundTextStyle": "light",

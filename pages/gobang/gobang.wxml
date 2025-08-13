@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="header">
+    <text class="title">五子棋</text>
+    <view class="game-info">
+      <text class="current-player">
+        当前玩家: {{currentPlayer === 1 ? '黑子 ●' : '白子 ○'}}
+      </text>
+      <text class="game-status" wx:if="{{gameStatus === 'won'}}">
+        🎉 {{winner === 1 ? '黑子' : '白子'}}获胜！
+      </text>
+      <text class="game-status" wx:if="{{gameStatus === 'draw'}}">
+        🤝 平局！
+      </text>
+    </view>
+  </view>
+  
+  <view class="game-container">
+    <view class="game-board">
+      <view class="board-row" wx:for="{{board}}" wx:key="index" wx:for-index="rowIndex">
+        <view 
+          class="{{getCellClass(rowIndex, colIndex)}}"
+          wx:for="{{item}}" 
+          wx:key="index" 
+          wx:for-index="colIndex"
+          data-row="{{rowIndex}}"
+          data-col="{{colIndex}}"
+          bindtap="onCellTap"
+        >
+          <text class="cell-content">{{getCellContent(rowIndex, colIndex)}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="controls">
+    <button class="control-btn" bindtap="restart">重新开始</button>
+  </view>
+  
+  <view class="instructions">
+    <text class="instruction-text">五子连珠即可获胜</text>
+    <text class="instruction-text">黑子先手，白子后手</text>
+    <text class="instruction-text">点击空白处下棋</text>
+  </view>
+</view>

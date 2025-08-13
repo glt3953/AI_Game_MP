@@ -1,0 +1,217 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  max-width: 600rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #776e65;
+}
+
+.score-container {
+  display: flex;
+  gap: 20rpx;
+}
+
+.score-box {
+  background: #bbada0;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  min-width: 120rpx;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: #eee4da;
+  display: block;
+}
+
+.score-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+
+.game-container {
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.game-board {
+  background: #bbada0;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  width: 600rpx;
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.board-row {
+  display: flex;
+  gap: 20rpx;
+  flex: 1;
+}
+
+.board-cell {
+  flex: 1;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: all 0.15s ease-in-out;
+}
+
+.cell-text {
+  font-size: 48rpx;
+}
+
+.cell-empty {
+  background: rgba(238, 228, 218, 0.35);
+}
+
+.cell-2 {
+  background: #eee4da;
+  color: #776e65;
+}
+
+.cell-4 {
+  background: #ede0c8;
+  color: #776e65;
+}
+
+.cell-8 {
+  background: #f2b179;
+  color: #f9f6f2;
+}
+
+.cell-16 {
+  background: #f59563;
+  color: #f9f6f2;
+}
+
+.cell-32 {
+  background: #f67c5f;
+  color: #f9f6f2;
+}
+
+.cell-64 {
+  background: #f65e3b;
+  color: #f9f6f2;
+}
+
+.cell-128 {
+  background: #edcf72;
+  color: #f9f6f2;
+  font-size: 40rpx;
+}
+
+.cell-256 {
+  background: #edcc61;
+  color: #f9f6f2;
+  font-size: 40rpx;
+}
+
+.cell-512 {
+  background: #edc850;
+  color: #f9f6f2;
+  font-size: 40rpx;
+}
+
+.cell-1024 {
+  background: #edc53f;
+  color: #f9f6f2;
+  font-size: 32rpx;
+}
+
+.cell-2048 {
+  background: #edc22e;
+  color: #f9f6f2;
+  font-size: 32rpx;
+  box-shadow: 0 0 30rpx 10rpx rgba(243, 215, 116, 0.55);
+}
+
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rpx;
+}
+
+.game-over-content {
+  text-align: center;
+}
+
+.game-over-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #776e65;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.game-over-score {
+  font-size: 32rpx;
+  color: #776e65;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+.restart-btn {
+  background: #8f7a66;
+  color: white;
+  border: none;
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.controls {
+  margin-bottom: 40rpx;
+}
+
+.control-button {
+  background: #8f7a66;
+  color: white;
+  border: none;
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 24rpx;
+  color: #776e65;
+  display: block;
+  margin-bottom: 10rpx;
+}

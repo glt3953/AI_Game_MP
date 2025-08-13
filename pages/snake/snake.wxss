@@ -1,0 +1,112 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.score {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+}
+
+.game-area {
+  position: relative;
+  margin-bottom: 40rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.3);
+}
+
+.game-canvas {
+  width: 600rpx;
+  height: 600rpx;
+  background: white;
+  display: block;
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.game-over-text {
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.final-score {
+  font-size: 32rpx;
+}
+
+.controls {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.control-btn {
+  padding: 20rpx 40rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.start-btn {
+  background: #FF9800;
+}
+
+.start-btn[disabled] {
+  background: #ccc;
+}
+
+.pause-btn {
+  background: #F44336;
+}
+
+.pause-btn[disabled] {
+  background: #ccc;
+}
+
+.reset-btn {
+  background: #2196F3;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  margin-bottom: 10rpx;
+}

@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="header">
+    <text class="title">贪吃蛇</text>
+    <text class="score">得分: {{score}}</text>
+  </view>
+  
+  <view class="game-area">
+    <canvas 
+      canvas-id="snakeCanvas" 
+      class="game-canvas"
+      bindtouchstart="onTouchStart"
+      bindtouchend="onTouchEnd"
+    ></canvas>
+    
+    <view class="game-over" wx:if="{{gameOver}}">
+      <text class="game-over-text">游戏结束</text>
+      <text class="final-score">最终得分: {{score}}</text>
+    </view>
+  </view>
+  
+  <view class="controls">
+    <button class="control-btn start-btn" bindtap="startGame" disabled="{{gameRunning}}">
+      {{gameRunning ? '游戏中' : '开始游戏'}}
+    </button>
+    <button class="control-btn pause-btn" bindtap="pauseGame" disabled="{{!gameRunning}}">
+      暂停
+    </button>
+    <button class="control-btn reset-btn" bindtap="resetGame">
+      重新开始
+    </button>
+  </view>
+  
+  <view class="instructions">
+    <text class="instruction-text">滑动屏幕控制蛇的方向</text>
+    <text class="instruction-text">吃到红色食物得分，避免撞墙和撞到自己</text>
+  </view>
+</view>

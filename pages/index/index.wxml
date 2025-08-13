@@ -22,6 +22,42 @@
       </view>
       <view class="game-arrow">></view>
     </view>
+    
+    <view class="game-card" bindtap="goToSnake">
+      <view class="game-icon">🐍</view>
+      <view class="game-info">
+        <text class="game-name">贪吃蛇</text>
+        <text class="game-desc">经典街机，挑战长度</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goTo2048">
+      <view class="game-icon">🔢</view>
+      <view class="game-info">
+        <text class="game-name">2048</text>
+        <text class="game-desc">数字合并，策略思考</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToMinesweeper">
+      <view class="game-icon">💣</view>
+      <view class="game-info">
+        <text class="game-name">扫雷</text>
+        <text class="game-desc">逻辑推理，小心地雷</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
+    
+    <view class="game-card" bindtap="goToGobang">
+      <view class="game-icon">⚫</view>
+      <view class="game-info">
+        <text class="game-name">五子棋</text>
+        <text class="game-desc">策略对弈，五子连珠</text>
+      </view>
+      <view class="game-arrow">></view>
+    </view>
   </view>
   
   <view class="footer">

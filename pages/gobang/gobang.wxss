@@ -1,0 +1,160 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d63031 0%, #74b9ff 100%);
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.current-player {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+}
+
+.game-status {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fdcb6e;
+  display: block;
+}
+
+.game-container {
+  margin-bottom: 40rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.3);
+}
+
+.game-board {
+  background: #daa520;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+}
+
+.board-row {
+  display: flex;
+  gap: 2rpx;
+}
+
+.cell {
+  width: 35rpx;
+  height: 35rpx;
+  background: #daa520;
+  border: 1rpx solid #8b7355;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.1s ease;
+}
+
+.cell:active {
+  background: #cd853f;
+}
+
+.cell-content {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cell-black .cell-content {
+  color: #2d3436;
+  text-shadow: 1rpx 1rpx 2rpx rgba(255, 255, 255, 0.3);
+}
+
+.cell-white .cell-content {
+  color: #ddd;
+  text-shadow: 1rpx 1rpx 2rpx rgba(0, 0, 0, 0.3);
+}
+
+.cell-last-move {
+  background: #e17055 !important;
+  box-shadow: 0 0 10rpx rgba(225, 112, 85, 0.8);
+}
+
+/* 棋盘网格线 */
+.cell::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2rpx;
+  background: #8b7355;
+  z-index: 0;
+}
+
+.cell::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2rpx;
+  background: #8b7355;
+  z-index: 0;
+}
+
+.cell-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 特殊位置标记 */
+.board-row:nth-child(4) .cell:nth-child(4)::before,
+.board-row:nth-child(4) .cell:nth-child(12)::before,
+.board-row:nth-child(8) .cell:nth-child(8)::before,
+.board-row:nth-child(12) .cell:nth-child(4)::before,
+.board-row:nth-child(12) .cell:nth-child(12)::before {
+  box-shadow: 0 0 0 3rpx #8b7355;
+  border-radius: 50%;
+}
+
+.controls {
+  margin-bottom: 40rpx;
+}
+
+.control-btn {
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 20rpx 40rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  margin-bottom: 10rpx;
+}
